@@ -184,6 +184,8 @@ Dart é open source. Dart nasceu para a web, e está disponível sob uma licenç
 		<br>
 Esta biblioteca ainda não faz Dart objetos utilizáveis ​​a partir de JavaScript, seus métodos e propriedades não são acessíveis, apesar de não permitir que as funções de dardo a ser passado para dentro e chamado a partir de JavaScript.
 		<br>
+		</p>
+		<h5>Exemplo Dart e HTML</h5> 
 		Para o exemplo, o primeiro será, adicionar o texto de um inputTextBox dentro de uma lista<br>
 Precisamos o código do arquivo HTML com o input, botão e a lista.
 <div class="codebox2">
@@ -248,7 +250,48 @@ Agora a função que vá inserir o texto na lista
 }
     </code>
 </div>
-		</p>
+		<h5>Dart e JavaScript</h5>
+		Para o exemplo, o primeiro será, criar um arquivo example.js com uma função como essa.
+		<div class="codebox">
+    <code>
+	function helloJavaScript(name){
+	alert("Hello " + name + " from Dart!!!!");
+}
+    </code>
+</div>
+Fazemos a adição do .js no HTML
+<div class="codebox">
+    <code>
+	&lt;div id="sample_container_id"&gt;<br>
+      Nome:&lt;input type="text" id="nome_input" /&gt;<br>
+      &lt;br&gt;<br>
+      &lt;input type="submit" id="nome_button" value="Fala!!!!"&gt;<br>
+    &lt;/div&gt;<br>
+
+    &lt;script type="application/dart" src="first.dart"&gt;<br>&lt;/script&gt;<br>
+    &lt;script src="packages/browser/dart.js"&gt;<br>&lt;/script&gt;<br>
+    &lt;script src="example.js"&gt;<br>&lt;/script&gt;<br>
+    </code>
+</div>
+No método main, inserimos uma função quando aconteça a ação click
+<div class="codebox">
+    <code>
+	void main() {querySelector("#nome_button")<br>
+   ..onClick.listen(addJSFunction);  <br>  
+}
+    </code>
+</div>
+Depois a função que modificara o método click do botão
+<div class="codebox">
+    <code>
+	void addJSFunction(MouseEvent event) {<br>
+  InputElement input = querySelector("#nome_input");<br>
+  var text_input = input.value;<br>
+  context.callMethod("helloJavaScript",[text_input]);<br>
+}
+    </code>
+</div>
+
 		</div>
 		<h4>Web de Dados</h4>
 		<div>
