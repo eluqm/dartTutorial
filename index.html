@@ -117,6 +117,139 @@ Dart é open source. Dart nasceu para a web, e está disponível sob uma licenç
 			possa ser encontrada. </p>
 
 		</div>
+		<h4>Dart-Bibliotecas vs HTML5</h4>
+		<div>
+			<p>Dart oferece um conjunto de bibliotecas que abarcam todo todo HTML5, 
+			eles tem a ideia que qualquer coisa que você pode fazer no HTML5, possa ser feito também no Google Dart.
+			</p>
+			<img src="images/bibliotecas.jpg" style="width: 800px">
+		</div>
+		<h4>Dart:Core</h4>
+		<div>
+		As características do Tipão Opcional e a utilização do tipo genérico são:
+		<ul>
+			<li>Pode usar tipos ou não.</li>
+			<div class="codebox">
+    <code>
+			var a = 5;<br>
+			var b = 10;<br>
+			var rpta = my_add(a,b);<br>
+  print("Addition of numbers:");<br>
+  print(rpta);<br>
+  <br><br>
+  a = p1;<br>
+  b = p2;<br>
+  rpta = my_add(a,b);<br>
+  print("Addition of Points:");<br>
+  print(rpta);<br>
+  <br><br>
+  a = "Hello ";<br>
+  b = "World!";<br>
+  rpta = my_add(a,b);<br>
+  print("Addition of Strings:");<br>
+  print(rpta);  <br>  
+    </code>
+</div>
+			<li>Usar tipos pode ajudar ao desenvolvedor entender o código.</li>			
+			<li>Generics são similares aos de Java.</li>
+			<div class="codebox2">
+    <code>
+			print("new List() is List< Object >: ${new List() is List< Object 	>}"); <br>  
+			
+  print("new List() is List<dynamic>: ${new List() is List< dynamic >}"); <br>  
+  print("new List< String >() is List< Object >: ${new List< String >() is List< Object >}");<br>  
+  print("new List< Object >() is List< String >: ${new List< Object >() is List< String >}");<br>  
+  print("new List< String >() is List< int >: ${new List< String >() is List< int >}");<br>  
+  print("new List< String >() is List: ${new List< String >() is List}");<br>  
+    </code>
+</div>
+			<li>Verificação do tipo impõe uma penalidade de desempenho considerável.</li>
+			<li>Static Checker avisa sobre possíveis problemas em tempo de compilação.</li>
+			Um pode decidir si utilizar o não o Static Checker, si não utilizar, a VM tentara executar.
+			<img src="images/optionalType.jpg" style="width: 600px">
+		</ul>
+		</div>
+		<h4>Dart:HTML</h4>
+		<div>
+		<p>	Use o dardo: html biblioteca para programar o navegador, manipular objetos e elementos no DOM e HTML5 APIs acesso. DOM significa Document Object Model, que descreve a hierarquia de uma página HTML. 
+		<br>
+		Outros usos comuns de dardo: html estão manipulando estilos (CSS), a obtenção de dados usando solicitações HTTP e troca de dados usando WebSockets. Somente aplicações web pode usar dardo: html, aplicativos de linha de comando não.
+		</p>
+		<img src="images/html-dart.png" style="width: 600px">
+		</div>
+		<h4>Dart:JavaScript</h4>
+		<div>
+		<p>
+		Esta biblioteca permite o acesso a objetos JavaScript do Dart, permitindo que o código Dart para obter e definir propriedades e chamar métodos de objetos JavaScript e chamar funções de JavaScript. A biblioteca se encarrega de converter entre os objetos, quando possível, ou prestação de proxies se a conversão não for possível dardo e JavaScript. 
+		<br>
+Esta biblioteca ainda não faz Dart objetos utilizáveis ​​a partir de JavaScript, seus métodos e propriedades não são acessíveis, apesar de não permitir que as funções de dardo a ser passado para dentro e chamado a partir de JavaScript.
+		<br>
+		Para o exemplo, o primeiro será, adicionar o texto de um inputTextBox dentro de uma lista<br>
+Precisamos o código do arquivo HTML com o input, botão e a lista.
+<div class="codebox2">
+    <code>
+	&lt;div id="sample_container_id"&gt;<br>
+      &lt;table&gt;<br>
+      &lt;tr&gt;<br>
+        &lt;td&gt;<br>
+      Tarefa:&lt;input type="text" id="tarefa_input" /&gt;<br>
+      &lt;br&gt;<br>
+      &lt;input type="submit" id="tarefa_button" value="Adicionar Tarefa"&gt;<br>
+      &lt;/td&gt;<br>
+      &lt;td&gt;<br>
+      &lt;h3&gt;<br>Lista de Tarefas&lt;/h3&gt;<br>
+      &lt;ul id="lista_tarefas"&gt;<br>
+      &lt;/ul&gt;<br>
+      &lt;/td&gt;<br>
+      &lt;/tr&gt;<br>
+      &lt;/table&gt;<br>
+    &lt;/div&gt;<br>
+    </code>
+</div>
+<div class="codebox">
+    <code>
+	<div id="sample_container_id">
+      <table>
+      <tr>
+        <td>
+      Tarefa:<input type="text" id="tarefa_input" />
+      <br>
+      <input type="submit" id="tarefa_button" value="Adicionar Tarefa">
+      </td>
+      <td>
+      <h3>Lista de Tarefas</h3>
+      <ul id="lista_tarefas">
+      </ul>
+      </td>
+      </tr>
+      </table>
+    </div>
+    </code>
+</div>
+Depois a função que modificara o método click do botão
+<div class="codebox">
+    <code>
+	void main() {<br>
+  querySelector("#tarefa_button")<br>
+  ..onClick.listen(addTarefa); <br>
+}
+    </code>
+</div>
+Agora a função que vá inserir o texto na lista
+<div class="codebox">
+    <code>
+	void addTarefa(MouseEvent event) {<br>
+  InputElement input = querySelector("#tarefa_input");<br>
+  var text_input = input.value;<br>
+  var novoItem = new LIElement();<br>
+  novoItem.text = text_input;<br>
+  querySelector("#lista_tarefas")<br>
+  ..children.add(novoItem);<br>
+}
+    </code>
+</div>
+		</p>
+		</div>
 		<h4>Web de Dados</h4>
 		<div>
 			<p align = "justify"> A proposta da Linked Data é transformar a Web em um enorme banco de dados global, com o intuito de criar uma “Web de Dados”, dando significado às 
