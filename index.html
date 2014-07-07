@@ -13,53 +13,82 @@
     </div>
 
 	<div style="margin-left:120px;width: 1000px">
-		<h2>Tutorial Linked Data</h2>
+		<h2>Tutorial de Google Dart</h2>
 		<div>
-			Kamila Lyra (k_lyra03@usp.br) e Rachel Reis (rachel.reis@usp.br) <br>
-			29 de junho de 2014<br><br>
-			<p align = "justify">Esse tutorial tem como objetivo apresentar o <i>Linked Data</i> e suas tecnologias. 
-			Para isso é necessário que o leitor possua conhecimento intermediário nas linguagens 
-			de consulta SQL e de marcação XML, bem como alguma base teórica em Web Semântica. No
-			decorrer do texto são apresentados exemplos e exercícios de fixação envolvendo as duas 
-			tecnologias utilizadas pelo <i>Linked Data</i>, RDF e SPARQL.</p>
+			Omar Mozo (omar.mozo@usp.br) e Edson Luque (edluquem@gmail.com) <br>
+			06 de julho de 2014<br><br>
+			<p align = "justify">Esse tutorial tem como objetivo apresentar o <i>Google Dart</i>. 
+			Para isso é necessário que o leitor possua conhecimento básico de alguma linguagem de programação orientado a objetos.</p>
 			<br><br>
-				<a href="arquivos/TutorialLinkedData.pdf" target="_blank">PDF</a>(249kb)<br/>
 		</div>
 		<h3>Introdução</h3>
 		<div>
-			<p align = "justify">A <i>World Wide Web</i> conhecida como Web 1.0 é caracterizada de um lado, por um pequeno grupo de usuários especialistas responsáveis por desenvolver 
-			os documentos (HTML e XHTML) a serem disponibilizados na Web.  Do outro lado, tem-se um grande número de usuários que apenas navega nesse ambiente, não 
-			sendo possível a eles publicar qualquer informação. </p>
-			<p align = "justify">  No intuito de possibilitar que os usuários não especialistas também criem e compartilhem informações na Web, surgiu a Web 2.0, também conhecida como 
-			a “Web de Documentos”. A Web 2.0 é caracterizada pelas comunidades de usuários (e.g.  <i>Facebook</i>) e ferramentas de colaboração (e.g. <i>Wikis</i>) 
-			[<a href="http://firstmonday.org/article/view/2125/1972]">Cormode & Krishnamurthy, 2008</a>]. </p>
-			<p align = "justify"> O crescimento contínuo e desordenado de documentos na Web 2.0 tem dificultado a localização de conteúdos, mesmo com o auxílio dos atuais mecanismos de
-			busca (e.g. <i>Google</i>), o que em geral demanda muito esforço de um usuário humano na análise e cruzamento dos resultados. Neste cenário, pode-se imaginar,
-			por exemplo, um turista que deseja organizar uma viagem, usando o conteúdo disponível na Web, para assistir aos jogos da copa no Brasil (Figura 1). Para 
-			realizar essa tarefa, o turista terá que consultar diversos sites diferentes como: empresas aéreas, para compra de passagens; hotéis, para estadia; informações 
-			sobre jogos da copa em páginas de esporte; e transporte, para locomoção. O que acontece em geral é esses dados serem analisados por um usuário humano, e não por
-			aplicações computacionais, pelo fato dos documentos serem publicados na Web em diferentes formatos (e.g. textual, vídeo), diferentes idiomas (e.g. português, inglês), 
-			apresentarem estruturas diferentes para os resultados (e.g. listas, tabelas), dentre outros.</p>
-			 <table align = center> 
-				<tr><td><img src="imagens/figura01.jpg" style="width: 500px"></td></tr> 
-			 </table>
-			 <b><center>Figura 1 – Web 2.0 aplicada à organização de uma viagem	para assistir aos jogos da copa no Brasil.</center></b><br>
-			 <p align = "justify"> Nesse contexto, a Web Semântica, também conhecida como “Web de Dados”, surge como uma iniciativa para estruturar e conectar 
-			 os dados de forma que as aplicações computacionais possam processar os resultados e realizar o cruzamento de dados de forma automática, 
-			 simplificando, no caso da Figura 2, a tarefa do usuário de organizar a viagem para assistir aos jogos da copa no Brasil.</p>
-			 <table align = center> 
-				<tr><td><img src="imagens/figura02.jpg" style="width: 500px"></td></tr>		 
-			 </table>
-			 <b><center>Figura 2 – Web Semântica aplicada à organização de uma viagem para assistir aos jogos da copa no Brasil.</center></b><br>
-			 <p align = "justify"> &nbsp &nbsp &nbsp &nbspPara que isso seja possível, a Web Semântica oferece um conjunto de tecnologias (recursos e linguagens) recomendadas pela W3C, 
-			 conforme mostrado pela Figura 3.</p>
-			<table align = center> 
-				<tr><td><img src="imagens/figura03.jpg" style="width: 400px"></td></tr> 
-			 </table>
-			 <b><center>Figura 3 – Tecnologias da Web Semântica. <br>Fonte: <a href="http://www.w3.org/DesignIssues/">Berners-Lee (2006)</a></center></b><br>
-			<p align = "justify"> &nbsp &nbsp &nbsp &nbspComo parte do desenvolvimento da Web Semântica tem-se o conceito de <i>Linked Data</i> (Dados Conectados ou Dados Ligados) que tem a proposta 
-			de conectar todos os dados disponibilizados na Web, pertencentes a diferentes fontes, para formar um único espaço de dados global 
-			[<a href="http://www.w3c.org/">W3C, 2014</a>]. </p>
+			<p>O problema de desenvolvimento de software atual tem problemas de complexidade, 
+			difícil de manter arquivos de longos códigos, etc. Os problemas que tem os sistemas complexos.</p>
+			<img src="images/web.png" style="width: 400px">
+			<br>
+			<p>
+			JavaScript tem problemas como?
+			<ul>
+			<li>Falta de estrutura</li>
+			<li>Muito difícil encontrar dependências</li>
+			<li>Todos os números são float</li>
+			<li>Monkey patching</li>
+			<li>As bibliotecas são arquivos que você pode concatenar</li>
+			... O que o torna ... 
+			<li>Difícil para otimizar o desempenho </li>
+			<li>É difícil manter grandes bases de código </li>
+			<li>Difícil afirmar correção</li>
+			</ul>
+			</p>
+		</div>
+		<h3>Google Dart</h3>
+		<div>
+			<p>Dart é fácil de aprender. É uma linguagem orientada a objetos com classes, herança simples, 
+			escopo léxico, as funções de nível superior, e uma sintaxe familiar.
+			Dart compila para JavaScript. Dart foi projetado desde o início para compilar para JavaScript, 
+			para que aplicativos Dart pode ser executado em toda a web moderna. Cada característica 
+			considerada para a linguagem deve de alguma forma ser traduzido para JavaScript performance 
+			e lógica antes de ser adicionado.
+			Dart é executado no cliente e no servidor. A máquina virtual Dart (VM) pode ser integrada num navegador web, mas também pode executar autônoma na linha de comando. Com o apoio da biblioteca interna para arquivos, diretórios, tomadas, e até mesmo servidores de web, você pode usar Dart para aplicativos completos de ponta a ponta. 
+
+Dart vem com um editor leve. Você pode usar o Editor do Dart para escrever, lançar e aplicativos debug Dart. Dart Editor não é necessário para escrever Dart; é apenas uma ferramenta que pode ajudá-lo a escrever melhor código mais rápido. 
+
+Dart suporta tipos, sem exigir que eles. Você pode omitir tipos quando você quer mover-se muito rapidamente, não é certo que a estrutura a tomar, ou simplesmente quer expressar algo que você não pode com o sistema de tipos. Usando tipos significa que menos comentários são necessários para documentar o código e ferramentas podem dar melhores avisos e mensagens de erro. 
+</p>
+<img src="images/dart_tool.jpg" style="width: 400px">
+<p>
+Dart escalas de pequenos scripts para grandes aplicações complexas. Desenvolvimento Web é muito mais um processo iterativo. 
+Dart tem uma grande variedade de bibliotecas integradas. A biblioteca núcleo suporta tipos de embutidos e outras características fundamentais, tais como coleções, datas e expressões regulares. Aplicativos da Web podem usar a biblioteca HTML otimizada para Dart. 
+Aplicativos de linha de comando pode usar a biblioteca de I / O para trabalhar com arquivos, diretórios, soquetes e servidores. Outras bibliotecas incluem URI, UTF, Matemática, e teste de unidade. 
+
+Dart suporta seguro, simples de concorrência com os isolados. Tópicos tradicionais de memória compartilhada são difíceis de depurar e pode levar a impasses. 
+Dart é open source. Dart nasceu para a web, e está disponível sob uma licença BSD.
+
+			</p>
+
+		</div>
+		<h3>Dart Performance</h3>
+		<div>
+		<p>
+		Para fazer o analize da performance de Dart, foi necessário fazer testes em distintos tipos de projetos, os quais são:
+		<ul>
+			<li><b>DeltaBlue</b> é um solucionador de restrição de sentido único, originalmente escrito 
+			em Smalltalk por John Maloney e Mario Wolczko. O foco principal está no DeltaBlue 
+			polimorfismo e programação orientada a objetos.</li>
+			<li><b>FluidMotion</b> é um solucionador de equações de Navier-Stokes 2D, 
+			originalmente escrito em JavaScript por Oliver Hunt. O foco principal é sobre 
+			o acesso a matrizes numéricas, bem como fazer aritmética de ponto flutuante.</li>
+			<li><b>Havlak</b> é um algoritmo de reconhecimento de referência circuito originalmente publicado 
+			no Workshop Scala Dias 2011 at Stanford. O algoritmo Havlak é uma extensão do algoritmo de 
+			busca intervalo de Tarjan que lida com gráficos irredutíveis, e constrói uma floresta-nidificação 
+			de loop para um gráfico de fluxo arbitrário. </li>
+			<li><b>Richards</b> é uma referência simulação kernel do sistema operacional, originalmente escrito em BCPL 
+			por Martin Richards. O foco principal de Richards está no acesso a propriedade e as funções e os métodos de chamada. </li>
+			<li><b>Tracer</b> é uma referência ray tracer, originalmente escrito em JavaScript por Adam Burmister. 
+			Tanto Adão ea versão Octane em JavaScript usar o padrão de emulação de classe da biblioteca prototype.js.</li>
+</p>
+			<img src="images/performance.jpg" >
 		</div>
 		<h3><i>Linked Data</i></h3>
 		<div>
