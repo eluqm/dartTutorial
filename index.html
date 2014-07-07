@@ -90,42 +90,142 @@ Dart é open source. Dart nasceu para a web, e está disponível sob uma licenç
 </p>
 			<img src="images/performance.jpg" >
 		</div>
-		<h3><i>Linked Data</i></h3>
-		<div>
-			<p align = "justify"> O Linked Data é caracterizado por um conjunto de melhores práticas para publicar e conectar os dados estruturados na Web usando um formato que
-			seja compreensível não apenas por usuários humanos, mas também por aplicações computacionais 
-			[<a href="http://tomheath.com/papers/bizer-heath-berners-lee-ijswis-linked-data.pdf">Bizer <i>et al.</i>, 2006</a>]. </p>
-			<p align = "justify"> &nbsp &nbsp &nbsp &nbspEssas melhores práticas baseiam-se em quatro princípios definidos por <a href = "http://www.w3.org/DesignIssues/" >Berners-Lee (2006)<a> 
-			como recomendações para publicação dos dados na Web:
-				<ul>
-					<li>Usar URIs para identificar “coisas” (dados)</li>
-					<li>Usar HTTP URIs para que pessoas possam encontrar essas “coisas” (dados)</li>
-					<li>Prover informação útil usando padrões (RDF e SPARQL)</li>
-					<li>Incluir links para outros URIs possibilitando a descoberta de outras “coisas” (dados)</li>
-				</ul>
-
-			</p>
-			<p align = "justify"> O primeiro princípio refere-se ao uso de <a href="http://www.ietf.org/rfc/rfc3986.txt"> URI </a>(<i>Uniform Resource Identifier</i>)  
-			que estabelece um padrão de codificação universal para representação e identificação dos dados na Web. Vale ressaltar que cada dado presente 
-			na Web deve possuir uma identificação (URI) única.</p>
-			<p align = "justify"> O segundo princípio baseia-se na utilização do protocolo HTTP como mecanismo de acesso universal para que os dados possam ser localizados na
-			Web a partir de sua URI. </p>
-			<p align = "justify"> O terceiro princípio está relacionado às informações oferecidas pelos dados para que aplicações computacionais possam compreendê-los e analisá-los 
-			a partir dos padrões <a href="http://www.w3.org/RDF/">RDF</a> e <a href="http://www.w3.org/TR/rdf-sparql-query/">SPARQL </a>. O padrão RDF é usado para 
-			descrição dos dados na Web e o padrão SPARQL para consulta aos dados.</p>
-			<p align = "justify"> O quarto princípio define a necessidade de conectar ilimitadamente os dados que estão na web, permitindo que todo tipo de informação disponível na Web 
-			possa ser encontrada. </p>
-
-		</div>
-		<h4>Dart-Bibliotecas vs HTML5</h4>
+		<h3>Snapshot</h3>
+  <div>
+        Se você escrever aplicações web, você não precisa fazer nada: navegadores com o Dart VM pode fazer um snapshot de seu aplicativo automaticamente. A próxima vez que o seu aplicativo web é executado, o navegador pode recuperar a partir do cache do navegador e usá-lo para iniciar o seu aplicativo mais rápido.
+        <h4>O que é um Snapshot?</h4>
+        Um snapshot é uma seqüência de bytes que representa uma forma serializada de um ou mais objetos Dart.O Dart(VM) utiliza snapshots por duas razões principais:
+     <ol>
+      <li>Acelerar o tempo de arranque inicial para um aplicativo. </li>
+      <li>Passando objetos de um isolate para outro isolate. </li>
+      </ol>
+  <h4>O Dart VM usa os seguintes tipos de Snapshot:</h4>
+<ol>
+<li> Um snapshot completo,  Isto é usado pelo Dart VM para inicialização rápida ea inicialização de toda a biblioteca central Dart e outras bibliotecas.
+</li>
+<li> Um snapshot de script, que é uma representação completa de um script de aplicação. Isto é usado pelo Dart VM para inicialização rápida e inicialização de aplicativos. 
+</li>
+<li> Um snapshot de objeto. Mensagens de um isolate para outro é implementado no Dart VM, criando uma imagem de objecto Dart que necessita de ser enviada para o outro isolate.
+</li>
+</ol>  
+  </div>
+  
+  <h3>Dart Code</h3>
+  <div>
+  <h4>Organize o seu código com as funções, classes, mixins e bibliotecas:</h4>
+  <table align = center >
+      <tr><td><img src="images/modular.png" style="width: 500px"></td></tr> 
+    </table>
+    <h4>Escrever menos. Diga mais:</h4>
+  <table align = center >
+        <tr><td><img src="images/dartcode.jpg" style="width: 400px"></td> 
+          <td><img src="images/dartcode01.jpg" style="width: 400px"></td>
+          
+          </tr> 
+    </table>
+    <h4>Você provavelmente já podem ler e até escrever código Dart:</h4>
+    <table align = center >
+      <tr><td><img src="images/dartcode02.jpg" style="width: 400px"></td>
+      <td><img src="images/dartcode03.jpg" style="width: 400px"></td></tr> 
+    </table>
+    
+  
+  </div>
+  
+  <h3>Classes</h3>
+  <div>
+  <p>Dart é uma linguagem orientada a objetos com classes, herança e mixin. Todas as classes descendem de "Object."</p>
+  <p>Para fazer uma classe abstrata e um método abstrato use (;) por exemplo:</p>
+  
+  <table align = center >
+      <tr><td><img src="images/dartclass.jpg" style="width: 500px"></td>
+      </tr> 
+    </table>
+  <p>Chamando um método abstrato resulta em um erro de tempo de execução.</p>
+  
+  <h3>Implicit Interfaces</h3>
+  <p>Cada classe define implicitamente uma interface que contém todos os membros da classe e todas as interfaces que implementa. Se você quiser criar uma classe A que suporta API do classe B sem herdar a implementação do B, classe A deve implementar a interface B, por exemplo:</p>
+  <table align = center >
+      <tr><td><img src="images/dartclass01.jpg" style="width:500px"></td>
+      </tr> 
+    </table>
+  
+  <p>Uma implementação da interface Pessoa.</p>
+  
+  <table align = center >
+      <tr><td><img src="images/dartclass01-1.jpg" style="width:500px"></td>
+      </tr> 
+    </table>
+   <p>resultado da execução do código é:</p>
+    <table align = center >
+      <tr><td><img src="images/dartclass01-console.jpg" style="width:400px"></td>
+      </tr> 
+    </table>    
+    
+    <h3>Adding Features to a Class: Mixins</h3>
+    <p>Mixins são uma forma de reutilizar o código de uma classe em várias hierarquias de classe uma que contém uma combinação de métodos de outras classes
+    
+Para usar um mixin, utilizar a palavra-chave "with" seguido por um ou mais nomes de Mixin, por exemplo:</p>
+  <table align = center >
+      <tr><td><img src="images/dartmixin.jpg" style="width:500px"></td>
+      </tr> 
+    </table>
+  <p>resultado da execução do código é:</p>
+  <table align = center >
+      <tr><td><img src="images/dartmixin-console.jpg" style="width:400px"></td>
+      </tr> 
+    </table>
+  
+  <table align=center bgcolor="#E6E6FA"> 
+      <tr><td>
+  <p>IMPORTANTE* : class X extends S with M2, M1,  tem a seguinte prioridade: </p>
+  
+      <p>self > M1 > M2 > S</p>
+      </td></tr> 
+    </table>
+  
+  
+  </div>
+  
+		<h3>Dart-Bibliotecas vs HTML5</h3>
 		<div>
 			<p>Dart oferece um conjunto de bibliotecas que abarcam todo todo HTML5, 
 			eles tem a ideia que qualquer coisa que você pode fazer no HTML5, possa ser feito também no Google Dart.
 			</p>
 			<img src="images/bibliotecas.jpg" style="width: 800px">
 		</div>
-		<h4>Dart:Core</h4>
-		<div>
+		<h3>Dart:Core</h3>
+		
+    <div>
+    <p>A biblioteca suporta principais tipos internos e outras características essenciais, tais como coleções, datas e expressões regulares. Aplicativos da Web podem usar a  biblioteca HTML:DOM, mas otimizado para Dart. Aplicativos de linha de comando pode usar a biblioteca de I / O para trabalhar com arquivos, diretórios, sockets e servidores. Outras bibliotecas incluem URI, UTF, Crypto, Matemática, e teste de unidade.</p>
+    <p>por exemplo intializing arranjos, Olhe :</p>
+    <table align = center >
+      <tr><td><img src="images/dartcore.jpg" style="width:400px"></td>
+      </tr> 
+    </table>
+    <table align=center bgcolor="#E6E6FA"> 
+      <tr><td>
+    <p>a1 é um arranjo com 5 elementos: [1,2,3,4,5], a2 é um arranjo com 5 elementos para: [undefined,undefined,undefined,undefined,undefined] </br>
+    </p>
+    </table>
+  
+  
+  <p>Dart é muito mais limpo. Um arranjo é basicamente uma lista e, portanto, tem esta interface.</p>
+  <table align = center >
+      <tr><td><img src="images/dartcore01.jpg" style="width:400px"></td>
+      </tr> 
+    </table>
+  <table align=center bgcolor="#E6E6FA"> 
+      <tr><td>
+  <p>a1 contém 5 diferentes elementos. a2 contém espaço para 5 elementos. Além disso você tem características interessantes como "removeRange" ou suporte para "sorting".</p>
+  </table>
+  
+  
+    <h4>Tipão Opcional</h4>
+    
+    
+    
+    
 		As características do Tipão Opcional e a utilização do tipo genérico são:
 		<ul>
 			<li>Pode usar tipos ou não.</li>
@@ -293,518 +393,81 @@ Depois a função que modificara o método click do botão
 </div>
 
 		</div>
-		<h4>Web de Dados</h4>
-		<div>
-			<p align = "justify"> A proposta da Linked Data é transformar a Web em um enorme banco de dados global, com o intuito de criar uma “Web de Dados”, dando significado às 
-			informações armazenadas nos documentos para que aplicações computacionais também possam processar essas informações. </p>
-			<p>Um paralelo mostrando as diferenças e similaridade entre Web de Documentos (Web 2.0) e a Web de Dados é apresentado na Tabela 1. </p><br>
-			<table border="1" align = center> 
-				<b><center>Tabela 1 – Paralelo entre a Web de Documentos (Web 2.0) e a Web de Dados.</center></b>
-				
-				<tr>
-						
-					<td>
-						<b>Características</b>
-					</td>
-					<td>
-						<b>Web de Documentos</b>
-					</td>
-					<td>
-						<b>Web de Dados</b>
-					</td>
-				</tr> 
-				<tr>
-						
-					<td>
-						Links
-					</td>
-					<td>
-						<i>Hiperlinks</i> conectando documentos
-					</td>
-					<td>
-						RDF interligando dados
-					</td>
-				</tr> 
-				<tr>
-						
-					<td>
-						Mecanismo de Identificação
-					</td>
-					<td>
-						<center>URIs</center>
-					</td>
-					<td>
-						<center>URIs</center>
-					</td>
-				</tr> 
-				<tr>
-						
-					<td>
-						Mecanismo de Acesso
-					</td>
-					<td>
-						<center>HTTP</center>
-					</td>
-					<td>
-						<center>HTTP</center>
-					</td>
-				</tr> 
-				<tr>
-						
-					<td>
-						Formato
-					</td>
-					<td>
-						<center>HTML</center>
-					</td>
-					<td>
-						<center>RDF</center>
-					</td>
-				</tr> 
-				<tr>
-						
-					<td>
-						Linguagem de Consulta
-					</td>
-					<td>
-						<center>-</center>
-					</td>
-					<td>
-						<center>SPARQL</center>
-					</td>
-				</tr> 
-			</table><br>
-			<p align = "justify"> Considerando a característica Links, a Web de Documentos emprega os <i>hiperlinks</i> para navegar entre as páginas. 
-			Essa estrutura não fornece nenhuma informação que diferencie um documento do outro, inviabilizando que aplicações computacionais 
-			possam fazer essa distinção. Por outro lado, na Web de Dados, os links RDF são usados para acessar os dados localizados em diferentes 
-			fontes. Diferente dos <i>hiperlinks</i> essa estrutura possibilta às aplicações computacionais extrair informações dos dados. </p>
-			<p align = "justify"> Em relação aos Mecanismos de Identificação e Acesso, ambos utilizam URIs e o protocolo HTTP, respectivamente. </p>
-			<p align = "justify"> O Formato para representação dos conteúdos usado na Web de Documentos é baseado na linguagem <a href="http://www.w3.org/html/">HTML</a> 
-			(<i>Hipertext Markup Language</i>), enquanto a Web de Dados utiliza o padrão RDF. </p>
-			<p align = "justify"> &nbsp &nbsp &nbsp &nbspFinalmente, a Web de Dados utiliza como linguagem de consulta o padrão SPARQL para recuperar às informações disponibilizadas na Web.</p>
+    
+    <h3>Dart:Animation and graphics</h3>
+  <div>
+  <h4>Canvas</h4>
+  <p>Canvas (tela) é um elemento HTML5 que permite gerar gráficos dinamicamente através scripting. Gerar gráficos estáticos e animações. Qualquer texto dentro deste elemento será exibido apenas em navegadores que não suportam a tela</p>
+  <p>é uma maneira de desenhar gráficos de uma forma simples em Dart:</p>
+  <table align = center >
+        <tr><td><img src="images/dartcanvas.jpg" style="width: 400px"></td> 
+          <td><img src="images/dartcanvas01.jpg" style="width: 400px"></td>
+          
+          </tr> 
+    </table>
+    <p>classes para manipular elementos html</p>
+    <table align = center >
+      <tr><td><img src="images/dartcanvas02.jpg" style="width: 400px"></td>
+      <td><img src="images/dartcanvas03.jpg" style="width: 400px"></td></tr> 
+    </table>
+  <h4>Dart + WebGl</h4>
+  <p>3D solar system animation A solar system implementation using WebGL.</p>
+  <p><a href="https://www.dartlang.org/samples/solar3d/">solar 3d usando WeblGL</a></p>
+  </div>
+  <h3>Exercício prático</h3>
+  <div>
+  <p>desenhar um círculo , a função e:</p>
+   <table align=center bgcolor="#E6E6FA"> 
+      <tr><td>
+  <p>void arc(num x, num y, num radius, num startAngle, num endAngle);</p>
+     </td></tr> 
+    </table>
 
-	</div>
-	<h3>O Projeto <i>Linking Open Data</i></h3>
-	<div>
-		<p align = "justify"> &nbsp &nbsp &nbsp &nbspQuando se fala em <i>Linked Data</i> um importante aspecto a ser considerado é que nem sempre os dados se encontram em formato aberto.  
-		Um dado em formato aberto define dados com livre acesso, que podem ser utilizados, reutilizados e compartilhados por qualquer pessoa. 
-		No intuito de incentivar a publicação desse tipo de dados, a comunidade W3C criou em 2007 o projeto <i>Linking Open Data</i> 
-		(<a href="http://www.w3.org/wiki/SweoIG/TaskForces/CommunityProjects/LinkingOpenData">LOD</a>). Esse projeto incentiva diferentes comunidades 
-		a disponibilizarem seus dados em formato aberto na Web, de forma estruturada por meio da tecnologia RDF e seus formatos  
-		<a href="http://www.w3.org/TR/rdf-syntax-grammar/">RDF/XML</a>, <a href="http://www.w3.org/2001/sw/RDFCore/ntriples/">N-Triple</a>, 
-		<a href="http://www.w3.org/TeamSubmission/turtle/" >Turtle </a> ou <a href="http://www.w3.org/TeamSubmission/n3/" >N3 </a>, para descrever e conectar 
-		os dados de diferentes fontes. </p>
-		<p align = "justify"> &nbsp &nbsp &nbsp &nbspO projeto LOD herda os princípios da <i>Linked Data</i>, também conhecidos como “<a href="http://www.w3.org/DesignIssues/LinkedData.html">Sistema de 5 Estrelas</a>” (Figura 4), que classifica por meio de 
-		estrelas o grau de abertura dos dados.</p>
-			<table align = center> 
-				<tr><td><img src="imagens/figura04.jpg" style="width: 400px"></td></tr> 
-			</table>
-			<b><center>Figura 4 – Sistema de 5 Estrelas. Fonte: <a href= "http://www.w3.org/DesignIssues/">Berners-Lee (2006)</a>.</center></b>
-		<br><p>Um dado é pontuado com uma estrela se for disponibilizado na Web, em qualquer formato, mas obrigatoriamente com licença aberta. </p>
-		<p>Para obter duas estrelas, o dado deve atender ao requisito anterior e estar em um formato estruturado, cujo processamento possa ser realizado por uma aplicação computacional. Por exemplo, ao invés de publicar
-		uma imagem escaneada de uma tabela na Web, recomenda-se disponibilizar essa informação utilizando um arquivo no formato excel. </p>
-		<p>Para adquirir três estrelas, o dado deve estar na Web em um formato estruturado e não proprietário, ou seja, ao invés do formato excel utilizar o formato CSV.</p>
-		<p>Um dado será classificado como quatro estrelas se estiver na Web em um formato estruturado e não proprietário, utilizando os padrões estabelecidos pela W3C (RDF e SPARQL).</p>
-		<p>Finalmente, um dado será cinco estrelas se atender a todas as exigências anteriores, com o acréscimo de vincular seus dados aos dados de outras pessoas.</p>
-		
-		<h4>Exemplo de Aplicação</h4>
-		<p>Como exemplo de aplicação dos princípios do  <i>Linked Data</i> tem-se o projeto <a href="http://opengovernmentinitiative.org/">Open Government</a>. 
-		Esse projeto foi criado nos Estados Unidos e adotado no Brasil como “Governo Aberto”, o qual apresenta uma ampla divulgação dos dados governamentais aos cidadãos e organizações, tendo como objetivo contribuir para 
-		a transparência desses dados e a sua reutilização. A publicação desses dados busca atender a questões relacionadas ao LOD como interoperabilidade, integração dos dados em larga escala, distribuição e acesso livre(
-		<a href="http://oglobo.globo.com/blogs/tecnologia/posts/2011/10/24/lod-publicando-dados-na-web-de-forma-estruturada-412502.asp">O Globo, 2011</a>).</p>
-		<p>Outro exemplo de aplicação está relacionado a empresa BBC que publica grande quantidade de conteúdos na Web como texto, áudio e vídeo. Essa empresa tem integrado seus dados usando a DBPedia, que é a comunidade 
-		responsável por extrair todos os dados da <i>Wikipedia</i> e disponibilizá-los em formato RDF na Web para que pessoas e/ou aplicações possam ser conectar a eles.
-		<a href="http://ceur-ws.org/Vol-938/ontobras-most2012_paper15.pdf">Cabral <i>et al.</i> (2012)</a> também utiliza os dados da DBPedia como um experimento para publicar os dados do Exame Nacional do Ensino Médio (ENEM) do ano de 2008.</p>
-		<p>Mais exemplos de aplicações que utilizam os princípios do Linked Data podem ser encontrados em <a href="http://www.w3.org/wiki/SweoIG/TaskForces/CommunityProjects/LinkingOpenData/Applications">W3C <i>Linked Data Applications</i> 
-		</a>. </p>
-		<h4>Crescimento da Web de Dados</h4>
-		<p>A fim de ilustrar os dados que têm sido publicados e conectados pelo projeto LOD, as Figuras 5, 6 e 7 mostram o crescimento da Web de Dados, respectivamente, para os anos de 2007, 2008 e 2011. Cada círculo (nó) nas nuvens representa um 
-		vocabulário criado em RDF e cada seta (arco) representa a ligação entre os vocabulários. Quanto maior o tamanho do círculo maior o número de triplas RDF.</p>
-		<p>A primeira nuvem do projeto LOD foi criada no mesmo ano em que o projeto surgiu, 2007, com aproximadamente 1 bilhão de triplas RDF e 250.000 links RDF (Figura 5). </p>
-		<table align = center >
-			<tr><td><img src="imagens/figura05.jpg" style="width: 500px"></td></tr> 
-		</table>
-		<b><center>Figura 5 – Nuvem de Dados – Projeto LOD, 2007. Fonte: Bizer (2009)</center></b>
-		<br>
-		<p>Já a nuvem representada pela Figura 6, criada em 2008, contou com mais de 35 bases de dados interligadas, com aproximadamente 2 bilhões de triplas RDF e 3 milhões de links RDF.</p>
-		<table align = center> 
-			<tr><td><img src="imagens/figura06.jpg" style="width: 500px"></td></tr> 
-		</table>
-		<b><center>Figura 6 – Nuvem de Dados – Projeto LOD, 2008. Fonte: Bizer (2009)</center></b>
-		 <br>
-		 <p>A nuvem apresentada na Figura 7 corresponde a nuvem mais atual, criada em 2011, contendo aproximadamente 31 bilhões de triplas RDF ligadas por cerca de 504 milhões de links RDF.</p>
-		 <table align = center> 
-			<tr><td><img src="imagens/figura07.jpg" style="width: 500px"></td></tr> 
-		</table>
-		<b><center>Figura 7 – Nuvem de Dados – Projeto LOD, 2011. Fonte: <a href="http://www.w3.org/wiki/SweoIG/TaskForces/CommunityProjects/LinkingOpenData#Project_Description">W3C (2014) </a></center></b>
-		
-	</div>
-	<h3>Padrões RDF e SPARQL</h3>
-	<div>
-		<p>Considerando a pilha de linguagens e tecnologias oferecidas pela Web Semântica (Figura 3) o Linked Data engloba duas tecnologias: RDF e SPARQL. O
-		<a href="http://www.w3.org/RDF/">RDF</a> é utilizado para modelar os dados usando uma estrutura padrão para que esses dados sejam publicados na Web. Essse formato estruturado necessita 
-		de um modo de armazenamento específico constituído pelas <a href="http://www.w3.org/2001/sw/wiki/Category:Triple_Store"><i>Triple Stores</i></a> . Já o  <a href="http://www.w3.org/TR/rdf-sparql-query/">SPARQL</a> 
-		é uma linguagem de consulta usada para o consumo dos dados nesse ambiente (Figura 8).</p><br>
-		<table align = center >
-			<tr><td><img src="imagens/figura08.jpg" style="width: 500px"></td></tr> 
-		</table>
-		<b><center>Figura 8 – Utilização da <i>Triple Store</i> na visão das tecnologias RDF e SPARQL</center></b>
-		<br>
-		<p>Não é o objetivo desse tutorial qualificar o leitor especificamente em RDF ou SPARQL, no entanto, a compreensão das duas tecnologias é relevante para o entendimento do conceito geral de <i>Linked Data</i>.</p>
+ <p>em seguida, mover o círculo com teclado usar "document.onKeyDown.listen()" , para eventos de teclado  "attachMover(KeyboardEvent event)", e função "move(String dir)" da Class Player para identificar a direção na qual você tem que mover o círculo.</p>
+  
+  
+  
+  </div>
+  <h3>Who Uses Dart?</h3>
+  <div>
+  <p>Aqui estão algumas empresas e usam  Dart.</p>
+  <ol>
+      
+      <li>Adobe, Flash Pro can export to Dart/HTML5/CSS.</li>
+<li>DartVoid,Application hosting platform built and optimized for Dart.</li>
+<li>Soundtrap,Collaboratively record music with your browser, built with Dart and WebRTC.</li>
+<li>blossom,Lean project management tool, built with Dart.</li>
+<li>Ascentis,SaaS for human capital management.</li>
+<li>Montage,Photobook editing, built with Dart.</li>
+<li>WebStorm,Rich IDE from JetBrains includes a Dart plugin.</li>
+<li>Hapara,Optimizes Google Apps for schools. Client built with Dart.</li>
+<li>Woven,Communities and engagement app for users and brands.</li>
+<li>Google Fiber,An internet connection that is 100 times faster than today’s average broadband speeds.</li>
+<li>Codeship,Continuous integration with support for Dart.</li>
+  </ol>
+  
+  </div>
+  
+  <h3>Conclusões</h3>
+  <div>
+  
+<ol>
+<li> Google diz que o objetivo do `Dart' não é substituir o JavaScript que temos hoje. A idéia é que Dart é criado para oferecer uma alternativa mais moderna.</li>
+<li> Dart ainda tem muito potencial como uma linguagem que compila em JavaScript, e Google já está a usá-lo por alguns grandes projetos internamente.</li>
+<li> Dart parece destinado a permanecer como: uma opção, não uma evolução.</li>  
+<li> Uma vez Dart é padronizado, a esperá-la para substituir JavaScript completamente, parece muito distante.</li>
+<li> Dart quer oferecer uma opção de desenvolvimento End-toEnd</li>
+</ol>
 
-		<h4>RDF </h4>
-		<p>O RDF (<i>Resource Description Framework</i>) é um <i>framework</i> ue provê uma estrutura padrão para representar informações na Web, permitindo que os dados sejam associados, apresentados e compartilhados entre 
-		diferentes aplicações computacionais. O RDF utiliza uma estrutura de  <i>links</i> URIs para nomear o relacionamento entre os dados na Web, o qual pode ser representada em forma de grafo.</p>
-		<p>A essência da sintaxe RDF é um conjunto de triplas constituídas por <b>sujeito-predicado-objeto</b>, sendo o sujeito e o objeto representados pelos nós no grafo, e o predicado representado pela aresta, conforme ilustrado 
-		pela Figura 9.</p>
-		<table align = center> 
-			<tr><td><img src="imagens/figura09.jpg" ></td></tr> 
-		</table>
-		<b><center>Figura 9 - Representação gráfica de um Tripla RDF.</center></b>
-		<br>
-		<p>Pode-se imaginar um sujeito como sendo uma entidade do tipo "Cidade" que é descrita por uma propriedade "name" cujo valor é "São Paulo" (Figura 10). Logo, sujeito, predicado e objeto estão relacionados aos conceitos de entidade, 
-		propriedade e valor.</p>
-		<table align = center> 
-			<tr><td><img src="imagens/figura10.jpg" ></td></tr> 
-		</table>
-		<b><center>Figura 10 -  Exemplo de entidade, propriedade e valor.</center></b>
-		<br>
-		<p>Além de "name" uma entidade pode ser descrita por outras propriedades diferentes. No caso da Figura 11, foram adicionadas as propriedades “population” e “area” a entidade “Cidade” cujos valores são, respectivamente, “43.663.669”
-		e "1530".</p>
-		<table align = center> 
-			<tr><td><img src="imagens/figura11.jpg" ></td></tr> 
-		</table>
-		<b><center>Figura 11 - Exemplo de entidade com múltiplas propriedades.</center></b>
-		<br>
-		<p>Na Web, sujeitos e predicados são obrigatoriamente representados por URIs. Logo, tudo na Web que queira referenciar esse sujeito ou predicado deve utilizar sua URI. Objetos podem ou não possuir uma URI. Quando ele possui uma URI e 
-		possui predicados e valores, esse objeto é considerado um sujeito para seus predicados.</p>
-		<p>A Figura 12 representa o sujeito e os predicados, apresentados na Figura 11, utilizando suas respectivas URIs.  A expressão "a:" presente em cada uma das propriedades representa um prefixo para resumir uma URI. Como exemplo, o prefixo 
-		"a:" pode singificar "http://ex.com/property". Logo, a propriedade "a:name" poderia ter sido descrita também como "http://ex.com/property/name" no grafo da Figura 12.</p>
-		<table align = center> 
-			<tr><td><img src="imagens/figura12.jpg" ></td></tr> 
-		</table>
-		<b><center>Figura 12 - URIs identificando a entidade e as propriedades em um grafo RDF.</center></b>
-		<br>
-		<p>Os grafos RDFs são representações para dados em RDF. Nesse tutorial  a linguagem utilizada para descrever os dados é o RDF/XML. O código abaixo apresenta a descrição para o sujeito “Cidade (<i>city</i>)”, com seus respectivos predicados e valores.
-		</p>
-		<br>
-		<table bgcolor="#E6E6FA"> 
-			<tr><td>
-			&ltrdf:Description rdf:about="http://ex.com/thing/city">  <br>
-				&nbsp &nbsp &lta:name>São Paulo&gt/a:name> <br>
-				&nbsp &nbsp &lta:population>43663669&gt/a:population> <br>
-				&nbsp &nbsp &lta:area>1530&gt/a:area> <br>
-			&lt/rdf:Description><br>
-			</td></tr> 
-		</table>
-		<br>
-		<p>A URI que identifica o sujeito é empregada dentro da <i>tag</i> <b>&ltrdf:Description> </b>para que seja possível reconhecer qual dado está sendo descrito. Cada predicado é representado também por uma <i>tag</i>. No exemplo, o predicado <b>a:name</b> é descrito pela <i>tag</i> de abertura
-		<b>&lta:name></b> e de fechamento <b>&lt\a:name></b>, e o objeto ("São Paulo") para esse predicado é colocado entre as <i>tags</i>. A representação dos predicados <b>a:population</b> é <b>a:area</b>, seguem o mesmo raciocínio apresentado para o predicado <b>a:name</b>.</p>
-		<p>A Figura 13 apresenta um grafo RDF em que duas entidades estão associadas. As URIs identificam de modo único os dois sujeitos. Vale ressaltar que a entidade “Cidade (<i>city</i>)”, nesse exemplo, apesar de ser representado por uma URI (http://ex.com/thing/city) 
-		emprega o papel de objeto para o sujeito "Aeroporto (<i>airport</i>)". </p>
-		<table align = center> 
-			<tr><td><img src="imagens/figura13.jpg" ></td></tr> 
-		</table>
-		<b><center>Figura 13 - Grafo RDF representando duas entidades associadas.</center></b>
-		<br>
-		<p>O código RDF descrevendo a Figura 13 é mostrado na sequência. Cada sujeito possui as <i>tags</i> <b>&ltrdf:Description> &lt\rdf:Description></b> e dentro de cada uma ficam seus respectivos predicados e objetos. Note que na representação do valor do predicado <b>a:location</b> 
-		a <i>tag</i> é inicializada com <b>&lta:location></b> e o valor (nesse caso uma URI) é colocado entre aspas em <b>rdf:resource</b> e finalizado apenas com <b>/></b>. </p>
-		<br>
-		<table bgcolor="#E6E6FA"> 
-			<tr><td>
-			&ltrdf:Description rdf:about="http://ex.com/thing/airport">  <br>
-				&nbsp &nbsp &lta:name>Congonhas&lt/a:name><br> 
-				&nbsp &nbsp &lta:location rdf:resource="http://ex.com/thing/city"/> <br>
-			&lt/rdf:Description><br><br>
-			&ltrdf:Description rdf:about="http://ex.com/thing/city"> <br> 
-			&lt/rdf:Description>
-
-			</td></tr> 
-		</table>
-		<br>
-		<p>Um exemplo de visualização de uma URI no formato RDF é apresentado pela DBPedia na Figura 14.</p>
-		<table align = center> 
-			<tr><td><img src="imagens/figura14.jpg" style="width: 500px"></td></tr> 
-		</table>
-		<b><center>Figura 14 - Exemplo de Dado em formato RDF. Fonte: <a href="http://dbpedia.org/page/Dilma_Rousseff">DBPedia.</a></center></b>
-		<br>
-		<p>O texto delimitado na parte superior da Figura 14 representa a entidade que está sendo descrita (Sujeito). As opções mostradas na lateral esquerda referem-se às propriedades (Predicado) que podem ser empregadas à entidade com seus respectivos valores (Objeto) à direita.</p>
-		<h4>Exercício 1 </h4>
-		<p>Agora é sua vez, tente descrever o grafo RDF mostrado na Figura 15 utilizando o esquema RDF/XML seguindo os exemplos apresentados até o momento.</p>
-		<table align = center> 
-			<tr><td><img src="imagens/figura15.jpg" style="width: 500px"></td></tr> 
-		</table>
-		<b><center>Figura 15 - Exercício 1</center></b>
-		<h4>Solução para o Exercício 1 </h4>
-		<table bgcolor="#E6E6FA"> 
-			<tr><td>
-			&ltrdf:Description rdf:about="http://ex.com/thing/SoccerPlayer"> <br>
-			&nbsp &nbsp &lta:name>Neymar&lt/a:name> <br> 
-			&nbsp &nbsp &lta:birthPlace rdf:resource="http://ex.com/thing/country"/> <br>
-            &lt/rdf:Description> <br><br>
-            &ltrdf:Description rdf:about="http://ex.com/thing/country"> <br>
-            &nbsp &nbsp &lta:name>Brazil&lt/a:name><br>
-            &lt/rdf:Description><br>
-
-			</td></tr> 
-		</table>
-		<h4>SPARQL</h4>
-		<p>O padrão SPARQL (<i>SPARQL Protocol and RDF Query Language</i>) proposto pela pela <a href="http://www.w3.org/TR/rdf-sparql-query/"> W3C </a> é uma linguagem de consulta projetada para consultar dados armazenados em <i>Triple Store</i> na Web, o qual permite combinar dados provenientes de
-		diferentes fontes.</p>
-		<p>SPARQL é uma linguagem amplamente usada para buscar dados em formato <a href="https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/W0d4284fb304f_4f39_9e4b_92a8424e5f6c/page/Writing%20SPARQL%20Queries">RDF </a> e é suportada pela maioria das <i>Triple Stores</i>. Essa linguagem é 
-		similar a  linguagem de consulta SQL (<i>Structured Query Language</i>), suportando agregação, <i>subqueries</i>, negação e criação de valores por meio de expressões. Comparado ao SQL os resultados de consultas SPARQL são dados por conjuntos de grafos RDF e não por tabelas. A estrutura de uma consulta básica SPARQL apresenta as mesmas cláusulas da linguagem SQL, porém com outras funções.</p>
-		<br>
-		<table bgcolor="#E6E6FA"> 
-			<tr><td>
-			SELECT [DISTINCT] FROM (opcional) WHERE (opcional)
-			</td></tr> 
-		</table>	
-		<br>
-		<p>No entanto, o protocolo SPARQL também apresenta funções específicas da linguagem, tais como: </p>
-		<li>FILTER: aplica um filtro ao resultado da consulta</li>
-		<li>LIMIT: limita a quantidade de resultados da consulta</li>
-		<li>PREFIX: cria um “apelido” para uma URI</li>
-		<br>
-		<p>Não serão descritos nesse tutorial conceitos aprofundados sobre SPARQL. No entanto, é necessário entender a estrutura de uma consulta básica e sua relação com uma tripla RDF. Espera-se do leitor um conhecimento intermediários na linguagem SQL para compreender os parágrafos a seguir.</p>
-		
-		<p>A Tabela 2 faz um paralelo mostrando o significado das cláusulas SELECT, FROM, WHERE para consultas no formato SQL e SPARQL.</p>
-		<br>
-		<table border="1" align = center> 
-				<b><center>Tabela 2 –  Comparativo entre as cláusulas usadas nas consultas SQL e SPARQL.</center></b>
-				
-				<tr>
-						
-					<td>
-						<center><b>Cláusula</b></center>
-					</td>
-					<td>
-						<center><b>Consulta SQL</b></center>
-					</td>
-					<td>
-						<center><b>Consulta SPARQL</b></center>
-					</td>
-				</tr> 
-				<tr>
-						
-					<td>
-						<center><b>SELECT</b></center> 
-					</td>
-					<td>
-						<center>Colunas de uma tabela</center>
-					</td>
-					<td>
-						<center>Sujeito-Predicado-Objeto</center>
-					</td>
-				</tr> 
-				<tr>
-						
-					<td>
-						<center><b>FROM</b></center>
-					</td>
-					<td>
-						<center>Tabela</center>
-					</td>
-					<td>
-						<center><i>Triple Store</i></center>
-					</td>
-				</tr> 
-				<tr>
-						
-					<td>
-						<center><b>WHERE</b></center>
-					</td>
-					<td>
-						<center>Condições</center>
-					</td>
-					<td>
-						<center>Restrições</center>
-					</td>
-				</tr> 
-		</table>
-		<br>
-		<p>A cláusula SELECT aplicada a uma consulta SQL especifica as colunas de uma ou mais tabelas desejadas no resultado, enquanto que ao ser utilizada em uma consulta SPARQL é 
-		   especificado o sujeito, predicado e/ou objeto. A cláusula FROM, no lugar de uma tabela, busca os dados em uma ou mais <i>Triple Stores</i>. A cláusula WHERE determina as condições 
-		   que devem ser atendidas pelo resultado de uma consulta SQL. Já em uma consulta SPARQL as instruções que são colocadas dentro do WHERE restringem o número de resultados.</p>
-		
-		<p>Como exemplos de consultas SQL e SPARQL para selecionar todas as cidades de um determinado domínio tem-se:
-			<br><br>
-			<li><b>Consulta SQL:</b></li><table bgcolor="#E6E6FA"> 
-			<tr><td>
-				USE BDdominio SELECT * FROM Cidade
-			</td></tr> 
-			</table>
-			</li>
-			<br>
-			<li><b>Consulta SPARQL:</b></li><table bgcolor="#E6E6FA"> 
-			<tr><td>
-				SELECT ?sujeito FROM &ltTriple Store> WHERE { <br>
-                &nbsp &nbsp  ?sujeito rdf:type dbpedia-owl:City . <br>
-                }
-			</td></tr> 
-			</table>				
-			</p>
-			</table>
-		<br>	
-		<p>Retomando a problemática da Web 2.0 apresentada na introdução sobre a dificuldade para analisar os resultados de uma consulta retornados por um mecanismo de busca, imagine que um usuário 
-		   deseje realizar a seguinte pesquisa na Web: "Recuperar o código postal das cidades dos Estados Unidos que tenham a <i>substring</i> 'ville' no nome". Conforme mostrado pela Figura 16, ao realizar 
-		   essa consulta usando o mecanismo de busca <i>Google</i> foram retornados 22.700.000 resultados. A tarefa de análise e cruzamento de todas as informações nesse caso teria que ser realizada por um usuário humano.</p>
-		<table align = center> 
-			<tr><td><img src="imagens/figura16.jpg" style="width: 500px"></td></tr> 
-		</table>
-		<b><center>Figura 16 - Resultado de uma consulta realizada no Google.</center></b>	
-		<br>
-		<p>Considere um novo cenário em que os dados se encontram armazenados na <i>Triple Store</i> do DBpedia (denominada <a href="http://dbpedia.org/sparql">Virtuoso</a>). A DBpedia é uma das comunidades integrantes do projeto LOD 
-		que extraiu os dados da <a href= "http://pt.wikipedia.org/">Wikipedia</a>  e os publicou em formato RDF aberto.</p>
-        <p>Vale ressaltar que a sequência de consultas SPARQL para este exemplo foi fracionada em quatro passos, os quais podem ser executados na <i>Triple Store</i> <a href="http://dbpedia.org/sparql">Virtuoso </a>.</p>
-		<br>
-		<li>1º Encontrar todas as cidades</li>
-		<p>Mais especificamente a consulta SPARQL, apresentada a seguir, deve primeiro "recuperar qualquer sujeito que seja do <b>tipo cidade</b>". Para isso, a cláusula SELECT deve declarar a variável (?Sujeito) que será 
-		preenchida com o resultado da busca, e colocar a restrição na cláusula WHERE para que seja aplicada sobre a tripla RDF.</p>
-		<br>
-		<table bgcolor="#E6E6FA"> 
-			<tr><td>
-			SELECT ?Sujeito <br>
-			WHERE { <br>
-			 &nbsp &nbsp  ?Sujeito rdf:type dbpedia-owl:City . <br>
-			 } <br>
-			 LIMIT 30
-			</td></tr> 
-		</table>
-		<br>
-		<p>Na tripla retratada dentro do WHERE, <b>rdf:type</b> descreve a propriedade e <b>dbpedia-owl:City</b> o valor. O <a href = "http://www.w3.org/TR/rdf-schema/">RDF Schema </a>  disponibiliza mecanismos para descrever grupos de 
-		recursos relacionados, esses recursos são utilizados para determinar as caracteríticas de outros recursos, como domínio e alcance. Recursos podem se dividir em grupos chamados classes, e os membros de uma classe são 
-		chamados instâncias dessas classes. O vocabulário RDF é definido em um <i>namespace</i> identificado pela <a href = "http://www.w3.org/1999/02/22-rdf-syntax-ns#">URI: </a>. Por conveniência, essa especificação é representada 
-		por uma abreviação, o prefixo  <b>rdf:</b>. O <b>rdf:type</b> é uma propriedade usada para declarar que um recurso é uma instância de uma classe. </p>
-	    <p>No código utilizado como exemplo, <b>rdf:type</b> declara que a variável (?Sujeito) deve ser uma instância da classe <i>City</i>. Desse modo é possível restringir o tipo do sujeito que deve ser retornado. </p>
-		<p>Do mesmo modo o prefixo <b>dbpedia-owl:</b> é usado para resumir a <a href = "http://www.w3.org/2002/07/owl#Ontology"> URI </a>, que representa uma ontologia. Uma ontologia é usada para definir formalmente um domínio, sendo uma alternativa
-		para a integração dos dados. Embora as ontologias sejam usadas como um importante recurso na Linked Data este tutorial não tem o objetivo de descrevê-las, mais informações podem ser encotradas em Breitman (2010).</p>
-		<p>Finalmente o ponto ao final da tripla indica o fim da restrição e é obrigatório. Já a cláusula LIMIT é opcional mas é considerada uma boa prática, pois limita o número de triplas retornadas pela consulta. Neste exemplo, a consulta está limitada 
-		a exibir as 30 primeiras triplas.</p>
-		<br>
-		<li>2º Encontrar todas as cidades que estão nos Estados Unidos</li>
-		<p>O resultado da primeira consulta devolve as URIs de todas as entidades que tenham a propriedade <b>type</b>, cujo valor é <i>City</i>. O resultado dessa consulta pode ser visualizado na Figura 17.</p>
-		<table align = center> 
-			<tr><td><img src="imagens/figura17.jpg" style="width: 500px"></td></tr> 
-		</table>
-		<b><center>Figura 17 -  Resultado da primeira consulta "Encontrar todas as cidades". Fonte: <a href = "http://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=SELECT+%3FSujeito%0D%0AWHERE+%7B%0D%0A%09%3FSujeito+rdf%3Atype+dbpedia-owl%3ACity+.%0D%0A%7D%0D%0ALIMIT+30%0D%0A&format=text%2Fhtml&timeout=30000&debug=on">
-		<i>Triple Store</i> Virtuoso.</a></center></b>
-		<br>
-		<p>Ao clicar na URI http://dbpedia.org/resource/Abbyville,_Kansas da Figura 17, por exemplo, é possível visualizar todas as informações da cidade Abbyville (Kansas) (Figura 18).</p>
-		<table align = center> 
-			<tr><td><img src="imagens/figura18.jpg" style="width: 500px"></td></tr> 
-		</table>
-		<b><center> Figura 18 - Informações sobre a cidade Abbyville (Kansas). Fonte: <a href = "http://dbpedia.org/resource/Abbyville,_Kansas"><i>Triple Store</i> Virtuoso</a></center></b>	
-		<br>
-		<p>Para que a consulta retorne todas a cidades que estão nos Estados Unidos é preciso restringi-la a partir da propriedade <b>dbpedia-owl:country</b> com o valor United_States, apresentada à direita na Figura 18.</p>
-		<p>A consulta SPARQL, para esse caso, é mostrada a seguir:</p>
-		<br>
-		<table bgcolor="#E6E6FA"> 
-			<tr><td>
-			SELECT ?Sujeito <br>
-			WHERE { <br>
-			&nbsp &nbsp  ?Sujeito rdf:type dbpedia-owl:City . <br>
-			&nbsp &nbsp  ?Sujeito dbpedia-owl:country dbpedia:United_States . <br>
-			}
-			</td></tr> 
-		</table>
-		<br>
-		<p>Como as duas instruções dentro da cláusula WHERE possuem a mesma variável de retorno (?Sujeito), a consulta acima pode ser reescrita, substituindo o ponto final da primeira instrução por ponto e vírgula e omitindo a variável ?Sujeito da segunda instrução, conforme mostrado a seguir: 
-		</p>
-		<br>
-		<table bgcolor="#E6E6FA"> 
-			<tr><td>
-			SELECT ?Sujeito <br>
-			WHERE { <br>
-			&nbsp &nbsp  ?Sujeito rdf:type dbpedia-owl:City ; <br>
-			&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp dbpedia-owl:country dbpedia:United_States . <br>
-			}
-			</td></tr> 
-		</table>
-		<br>
-		<li>3º Recuperar apenas as cidades que possuem "ville" no nome. Por exemplo: Centerville</li>
-		<p>Conforme mostrado na consulta <a href= "http://greco.ppgi.ufrj.br/lodbr/index.php/principal/tutorial/sparql_parte1/">SPARQL</a>, o FILTER, nesse caso, utiliza a função <b>regex</b> para aplicar um filtro no sujeito, retornando apenas os que possuem a <i>substring</i> "ville" em seu nome. O parâmetro "i", 
-		é opcional, e quando empregado na função informa ao filtro que deve-se adotar a comparação <i>case-insensitive</i>.</p>
-		<p>Vale destacar que o FILTER possibilita o uso de outros funções como <i>bound, isURI, isBlank</i>, dentre outros.</p>
-		<br>
-		<table bgcolor="#E6E6FA"> 
-			<tr><td>
-			SELECT ?Sujeito <br>
-			WHERE { <br>
-			&nbsp &nbsp ?Sujeito rdf:type dbpedia-owl:City . <br>
-			&nbsp &nbsp ?Sujeito dbpedia-owl:country dbpedia:United_States . <br>
-			&nbsp &nbsp FILTER regex(?Sujeito, “ville", "i") <br>
-			}
-			</td></tr> 
-		</table>
-		<br>
-		<li>4º Recuperar o código postal (CEP)</li>
-		<p>O resultado da consulta, nesse caso, deve mostrar, além da URI que identifica a cidade (na variável ?Sujeito), o código postal da cidade . Assim é necessário declarar mais uma variável (?Valor) e incluí-la na cláusula SELECT. Além disso, é necessário adicionar uma nova instrução que especifique a propriedade 
-		como <b>dbpedia-owl:postalCode</b>.  </p>
-		<br>
-		<table bgcolor="#E6E6FA"> 
-			<tr><td>
-			SELECT ?Sujeito ?Valor <br>
-			WHERE { <br>
-			&nbsp &nbsp ?Sujeito rdf:type dbpedia-owl:City . <br>
-			&nbsp &nbsp ?Sujeito dbpedia-owl:country dbpedia:United_States . <br>
-			&nbsp &nbsp FILTER regex(?Sujeito, “ville", "i") <br>
-			&nbsp &nbsp ?Sujeito dbpedia-owl:postalCode ?Valor .<br>
-			}
-			</td></tr> 
-		</table>
-		<h4>Exercício 2 </h4>
-		<p>Para praticar os conceitos apresentados sobre SPARQL elabore uma consulta SPARQL que "Selecione todos os jogadores de futebol que jogam ou já tenham jogado no Santos e que nasceram na cidade de Mogi das Cruzes, SP, Brasil.  Além disso, a consulta deve retornar a posição do jogador em campo (e.g. lateral, atacante)." Utilize a <i>Triple Store</i> <a href= "http://dbpedia.org/sparql"> Virtuoso </a>.
-		<p>Para facilitar a resolução do exercício, o mesmo foi separado nas seguintes etapas:<p>
-		<ol>
-          <li>Selecione todos os jogadores de futebol</li>
-          <li>São brasileiros </li>
-		  <li> Nasceram na cidade de Mogi das Cruzes </li>
-		  <li> Tenham jogado no Santos_FC </li>
-		  <li> Mostre a posição em que jogam (e.g. lateral, atacante). </li>
-		</ol>
-		
-		<h4>Solução para o Execício 2</h4>
-		<table bgcolor="#E6E6FA"> 
-			<tr><td>
-			SELECT ?Sujeito ?Valor <br>
-			WHERE { <br>
-			&nbsp &nbsp ?Sujeito rdf:type dbpedia-owl:SoccerPlayer . <br>
-			&nbsp &nbsp ?Sujeito dbpedia-owl:birthPlace dbpedia:Brazil . <br>
-			&nbsp &nbsp ?Sujeito dbpedia-owl:birthPlace dbpedia:Mogi_das_Cruzes .<br>
-			&nbsp &nbsp ?Sujeito dbpedia-owl:team dbpedia:Santos_FC .<br>
-			&nbsp &nbsp ?Sujeito dbpedia-owl:position ?Valor .<br>
-			}
-			</td></tr> 
-		</table>
-		<h4>Exercício 3 </h4>
-		<p>Como último exercício de fixação, elabore uma consulta SPARQL que retorne as pessoas armazenadas na <i>Triple Store</i> <a href= "http://dbpedia.org/sparql">Virtuoso</a> que possuam a <i>substring</i> "angel" no nome. Exiba apenas os 30 primeiros resultados.</p>
-		<h4>Solução para o Exercício 3 </h4>
-		<table bgcolor="#E6E6FA"> 
-			<tr><td>
-			SELECT ?Sujeito ?Valor <br>
-			WHERE { <br>
-			&nbsp &nbsp ?sujeito rdf:type dbpedia-owl:Person . <br>
-			&nbsp &nbsp ?sujeito foaf:name ?valor . <br>
-			&nbsp &nbsp FILTER regex(?valor, "angel", "i")<br>
-			}<br>
-			LIMIT 30
-			</td></tr> 
-		</table>
-		<br>
-		<p>Vale ressaltar que apesar dos exemplos acima terem usado apenas a <i>Triple Store</i> do DBPedia é possível realizar consultas SPARQL usando diferentes fontes, conforme apresentado em <a href = "http://www.w3.org/TR/sparql11-query/#specDataset">SPARQL (2013)</a>.	
-        </p>
-		<h3>Para saber mais </h3>
-		<p>Os textos, exemplos e exercícios de fixação neste tutorial foram pensados para fornecer uma visão geral do conceito de <i>Linked Data</i>, além de uma breve compreensão sobre as tecnologias envolvidas. Maiores informações e conceitos podem ser encontrados nas referências associadas durante o texto e nos <i>links</i> a seguir. </p><br>
-		<li>Infográfico da W3C sobre WebSemântica: [http://oglobo.globo.com/blogs/tecnologia/posts/2010/10/21/web-semantica-324630.asp]</li> 
-		<li>Comparação entre Triple Stores: [http://www.bioontology.org/wiki/images/6/6a/Triple_Stores.pdf] </li>
-		<li>Para validar e gerar visualizações para seus RDFs:  [http://www.w3.org/RDF/Validator/] </li>
-		<li>Introdução a Linked Data e Web Semântica: [http://www.linkeddatatools.com/semantic-web-basics] </li>
-		<li>Livro Linked Data: [http://linkeddatabook.com/editions/1.0/] </li>
-		<li>Linked Data - Connect Distributed Data across the Web [http://linkeddata.org/guides-and-tutorials]</li>
-		<h3>Referências </h3>
-		<p>Breitman, K. K. (2010) Web Semântica - A Internet do Futuro. Rio de Janeiro: LTC, 2010.</p><br>
-		  <p>Bizer, C. (2009) "The Emerging Web of Linked Data". Intelligent Systems, IEEE , vol.24, no.5, p.87-92.
-		</p>
+  
+  </div>
+    
+<h3>Referências </h3>
+		  <p>Support and Community, https://www.dartlang.org</p>		  
+    <p>Walrath, Kathy; Ladd, Seth (March 7, 2012). What is Dart? (1st ed.). O'Reilly Media. p. 20. ISBN 978-14493-32327. </p>
+<p>Walrath, Kathy; Ladd, Seth (November 7, 2012). Dart: Up and Running (1st ed.). O'Reilly Media. p. 144. ISBN 978-1449330897.</p>
+<p>Buckett, Chris (December 28, 2012). Dart in Action (1st ed.). Manning Publications. p. 475. ISBN 978-1617290862.</p>
+    
 
 
 	</div>
